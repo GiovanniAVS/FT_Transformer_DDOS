@@ -34,6 +34,14 @@ The configuration for running the experiments used the T4 machine provided by Go
 - **CICDDoS2019**: Employed to validate the model’s robustness in varied scenarios.
 - **Generalization between captures**: Experiments were conducted by training on one dataset and validating on another to assess the model’s performance in unknown attack scenarios.
 
+To conduct this experiment, it was necessary to apply a transformation to the original data format. The dataset is in .CSV format, which is incompatible with the Python program used by Gorishniy. Therefore, the data need to be converted into the .npy (NumPy) format.
+
+This study removed the initial entries that contained no useful data. The remaining samples need to be split into validation and test sets, depending on the experiment and scenario.
+
+The experiments conducted utilize features such as:
+
+Total number of source and destination IP addresses and total number of packets transmitted in each time interval among others. An additional advantage of using these features is that they can be extracted solely from packet headers, simplifying both data capture and storage since it is not necessary to collect the payload of the packets.
+
 ## 🧪 Methodology
 1. **Data Preprocessing**:
    - Normalization and handling of missing values.
